@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiMercado - Carrito</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <header>
+        <!-- Mismo header que index.html -->
+    </header>
+
+    <main class="container">
+        <h1>Tu Carrito de Compras</h1>
+        
+        <div class="cart-items">
+            <!-- Productos en carrito se cargarán con JS -->
+        </div>
+        
+        <div class="cart-summary">
+            <div class="summary-card">
+                <h3>Resumen de compra</h3>
+                <div class="summary-row">
+                    <span>Subtotal:</span>
+                    <span id="subtotal">$0.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Envío:</span>
+                    <span id="shipping">$0.00</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Total:</span>
+                    <span id="total">$0.00</span>
+                </div>
+                <button class="checkout-btn">Continuar compra</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Proyecto educativo - No afiliado a MercadoLibre</p>
+    </footer>
+
+    <script src="js/cart.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

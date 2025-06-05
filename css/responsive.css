@@ -1,0 +1,30 @@
+/* Responsive Design */
+@media (max-width: 768px) {
+    .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+    
+    .product-detail-container {
+        flex-direction: column;
+    }
+    
+    .cart-summary {
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .header-container {
+        flex-wrap: wrap;
+    }
+    
+    .user-actions {
+        margin-top: 10px;
+        width: 100%;
+        justify-content: center;
+    }
+}
