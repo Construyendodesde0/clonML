@@ -6,48 +6,117 @@
     <title>MiMercado - Inicio</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/carousel.css">
+    <link rel="stylesheet" href="css/ads.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <header>
-        <div class="container header-container">
-            <div class="logo">MiMercado</div>
-            <div class="search-bar">
-                <input type="text" placeholder="Buscar productos...">
-                <button>Buscar</button>
-            </div>
-            <div class="user-actions">
-                <a href="#">Ingresar</a>
-                <a href="carrito.html">🛒 Carrito</a>
-            </div>
+    <div class="container header-container">
+        <button class="menu-toggle">☰</button>
+        
+        <a href="index.html" class="logo">
+            <span class="logo-icon">🛒</span>
+            <span>MiMercado</span>
+        </a>
+        
+        <div class="search-bar">
+            <input type="text" placeholder="Buscar productos, marcas y más...">
+            <button>🔍</button>
         </div>
-    </header>
+        
+        <div class="user-actions">
+            <a href="#" class="nav-link">
+                <i>👤</i>
+                <span>Ingresar</span>
+            </a>
+            <a href="carrito.html" class="nav-link cart-link">
+                <i>🛒</i>
+                <span>Carrito</span>
+                <span class="cart-count">0</span>
+            </a>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+        <!-- Carrusel Hero -->
+        <section class="hero-carousel">
+            <div class="hero-slides">
+                <div class="hero-slide active" style="background-image: url('assets/images/hero1.jpg');">
+                    <div class="hero-overlay"></div>
+                    <div class="hero-content">
+                        <h2>Ofertas Imperdibles</h2>
+                        <p>Hasta 50% OFF en electrónica</p>
+                        <button class="hero-btn">Ver más</button>
+                    </div>
+                </div>
+                <!-- Más slides... -->
+            </div>
+            <button class="hero-prev"><i class="fas fa-chevron-left"></i></button>
+            <button class="hero-next"><i class="fas fa-chevron-right"></i></button>
+            <div class="hero-indicators"></div>
+        </section>
+        
+        <!-- Carrusel Destacados -->
+        <section class="featured-products-carousel">
+            <div class="featured-header">
+                <h2>Productos Destacados</h2>
+                <div class="featured-nav">
+                    <button class="featured-prev"><i class="fas fa-chevron-left"></i></button>
+                    <button class="featured-next"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            <div class="featured-track"></div>
+        </section>
+        
+        <!-- Sección Publicidad 1 -->
+        <section class="ad-section">
+            <h2>Ofertas del Día</h2>
+            <div class="ad-grid"></div>
+        </section>
+    </div>
+
 
     <main class="container">
-        <section class="banner">
-            <h1>Ofertas Especiales</h1>
-        </section>
-        
-        <section class="categories">
-            <h2>Categorías</h2>
-            <div class="category-grid">
-                <!-- Categorías se cargarán con JS -->
+        <section class="hero-carousel">
+            <div class="hero-slides">
+                <!-- Slide 1 -->
+                <div class="hero-slide active" style="background-image: url('assets/images/hero1.jpg')">
+                    <div class="hero-overlay"></div>
+                    <div class="hero-content">
+                        <h2>Ofertas de Temporada</h2>
+                        <p>Hasta 40% OFF en electrónica</p>
+                        <button class="hero-btn">Ver ofertas</button>
+                    </div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="hero-slide" style="background-image: url('assets/images/hero2.jpg')">
+                    <div class="hero-overlay"></div>
+                    <div class="hero-content">
+                        <h2>Envío Gratis</h2>
+                        <p>En miles de productos seleccionados</p>
+                        <button class="hero-btn">Comprar ahora</button>
+                    </div>
+                </div>
             </div>
-        </section>
-        
-        <section class="featured-products">
-            <h2>Productos Destacados</h2>
-            <div class="product-grid">
-                <!-- Productos se cargarán con JS -->
+            <!-- Controles -->
+            <button class="hero-prev"><i class="fas fa-chevron-left"></i></button>
+            <button class="hero-next"><i class="fas fa-chevron-right"></i></button>
+            <div class="hero-indicators">
+                <div class="indicator active"></div>
+                <div class="indicator"></div>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>Proyecto educativo - No afiliado a MercadoLibre</p>
+        <p>Proyecto educativo creado por Joaquin Gonzalez - No afiliado a MercadoLibre</p>
     </footer>
 
-    <script src="js/products.js"></script>
-    <script src="js/app.js"></script>
+    <script src="js/hero-carousel.js"></script>
+    <script src="js/featured-carousel.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

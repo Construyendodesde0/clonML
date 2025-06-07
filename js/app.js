@@ -5,15 +5,51 @@ function loadProducts(containerSelector, products) {
     
     container.innerHTML = products.map(product => `
         <div class="product-card">
-            <img src="${product.image}" alt="${product.name}">
+            <div class="product-image">
+                <img src="${product.image}" alt="${product.name}">
+                ${product.discount ? `<div class="product-badge">${product.discount}% OFF</div>` : ''}
+            </div>
             <div class="product-info">
-                <h3>${product.name}</h3>
-                <div class="price">$${product.price.toFixed(2)}</div>
-                <a href="detalle-producto.html?id=${product.id}">Ver detalle</a>
+                <div class="product-title">${product.name}</div>
+                <div class="product-price">$${product.price.toFixed(2)}</div>
+                <div class="product-shipping">Envío gratis</div>
+                <div class="product-rating">
+                    <div class="stars">★★★★★</div>
+                    <span>(${product.rating})</span>
+                </div>
+                <button class="add-to-cart-btn" data-id="${product.id}">Agregar al carrito</button>
             </div>
         </div>
     `).join('');
+    
+    // Agregar event listeners a los botones
+    document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+        button.addEventListener('click', (e) => {
+            const productId = parseInt(e.target.dataset.id);
+            const product = productsDB.find(p => p.id === productId);
+            if (product) {
+                cart.addItem(product);
+                updateCartCount();
+                alert(`${product.name} añadido al carrito`);
+            }
+        });
+    });
 }
+
+// Función para actualizar contador del carrito
+function updateCartCount() {
+    const countElements = document.querySelectorAll('.cart-count');
+    countElements.forEach(el => {
+        el.textContent = cart.items.reduce((total, item) => total + item.quantity, 0);
+    });
+}
+
+// Inicializar contador del carrito al cargar
+document.addEventListener('DOMContentLoaded', () => {
+    cart.loadFromLocalStorage();
+    updateCartCount();
+
+});
 
 // Función para cargar categorías
 function loadCategories() {
@@ -45,6 +81,39 @@ function loadCategories() {
             categoryFilter.appendChild(option);
         });
     }
+}
+
+// Función para inicializar el carrusel
+function initCarousel() {
+    const track = document.querySelector('.carousel-track');
+    const prevBtn = document.querySelector('.carousel-btn.prev');
+    const nextBtn = document.querySelector('.carousel-btn.next');
+    
+    if (!track) return;
+    
+    // Cargar productos en el carrusel (usaremos los mismos destacados)
+    loadProducts('.carousel-track', [
+        {id: 1, name: "Smartphone X5", price: 299.99, image: "assets/images/phone.jpg", discount: 15, rating: 4.5},
+        {id: 2, name: "Zapatos Running", price: 49.99, image: "assets/images/shoes.jpg", discount: 30, rating: 4.2},
+        {id: 3, name: "Laptop Pro", price: 899.99, image: "assets/images/laptop.jpg", rating: 4.8},
+        {id: 4, name: "Camiseta Deportiva", price: 19.99, image: "assets/images/shirt.jpg", discount: 20, rating: 4.0},
+        {id: 5, name: "Smart TV 55\"", price: 499.99, image: "assets/images/tv.jpg", discount: 10, rating: 4.6},
+        {id: 6, name: "Auriculares Bluetooth", price: 79.99, image: "assets/images/headphones.jpg", rating: 4.3}
+    ]);
+    
+    // Funcionalidad de navegación
+    prevBtn.addEventListener('click', () => {
+        track.scrollBy({left: -250, behavior: 'smooth'});
+    });
+    
+    nextBtn.addEventListener('click', () => {
+        track.scrollBy({left: 250, behavior: 'smooth'});
+    });
+}
+
+// Inicializar carrusel en el home
+if (document.querySelector('.products-carousel')) {
+    document.addEventListener('DOMContentLoaded', initCarousel);
 }
 
 // Inicialización cuando el DOM esté listo

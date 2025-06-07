@@ -1,0 +1,37 @@
+/* Secciones de publicidad */
+.ad-section {
+    margin: 40px 0;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 20px;
+}
+
+.ad-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.ad-card {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.ad-card:hover {
+    transform: translateY(-5px);
+}
+
+.ad-card img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+}
+
+.ad-card-content {
+    padding: 15px;
+}
+
+/* Estilos para precios y descuentos... */
